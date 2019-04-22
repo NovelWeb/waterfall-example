@@ -28,18 +28,18 @@ export default {
     }
   },
   mounted() {
-    this.list = this.createList();
+    this.list = this.createList(0);
   },
   methods: {
     addNewList() {
-      this.list.push(...this.createList())
+      this.list.push(...this.createList(this.list.length))
     },
-    createList() {
+    createList(startNum) {
       let list = [];
       for (let i = 0; i < 15; i++) {
         list.push({
           src: require(`./assets/img/${i+1}.jpg`),
-          name: `Image${i}`
+          name: `Image${startNum+i+1}`
         })
       }
       return list;
